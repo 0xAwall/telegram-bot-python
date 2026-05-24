@@ -219,7 +219,7 @@ async def cb_main(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
 
     if d in ("main", "disclaimer_ok"):
         name = q.from_user.first_name
-        txt = f"🦞 Halo *{name}*! Selamat datang di OpenClaw Bot\n\nMau ngapain?" if d == "disclaimer_ok" else "🦞 *Menu Utama*"
+        txt = f"😸 Halo *{name}*! Selamat datang di BatBut Bot\n\nMau ngapain?" if d == "disclaimer_ok" else "😸 *Menu Utama*"
         await q.edit_message_text(txt, parse_mode="Markdown", reply_markup=kb_main(uid))
         return S_MAIN
 
@@ -229,7 +229,7 @@ async def cb_main(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
         save_cfg(uid, cfg)
         status = "🟢 ON — Kirim alamat kontrak token di chat untuk cek harga!" if cfg["dex_on"] else "⚫ OFF"
         await q.answer(f"Crypto {status}", show_alert=True)
-        await q.edit_message_text("🦞 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid))
+        await q.edit_message_text("😸 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid))
         return S_MAIN
 
     if d == "chat":
@@ -332,7 +332,7 @@ async def cb_provider(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     uid = q.from_user.id; d = q.data
 
     if d == "main":
-        await q.edit_message_text("🦞 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid)); return S_MAIN
+        await q.edit_message_text("😸 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid)); return S_MAIN
 
     if d.startswith("prov_"):
         pid = d[5:]
@@ -355,7 +355,7 @@ async def cb_model(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     uid = q.from_user.id; d = q.data
 
     if d == "main":
-        await q.edit_message_text("🦞 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid)); return S_MAIN
+        await q.edit_message_text("😸 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid)); return S_MAIN
 
     if d.startswith("mdl_"):
         parts = d.split("_", 2); pid = parts[1]; mdl = parts[2]
@@ -385,7 +385,7 @@ async def cb_apikey(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     uid = q.from_user.id; d = q.data
 
     if d == "main":
-        await q.edit_message_text("🦞 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid)); return S_MAIN
+        await q.edit_message_text("😸 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid)); return S_MAIN
     if d == "apikey":
         cfg = load_cfg(uid)
         rows = []
@@ -442,7 +442,7 @@ async def cb_skill(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     uid = q.from_user.id; d = q.data
 
     if d == "main":
-        await q.edit_message_text("🦞 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid)); return S_MAIN
+        await q.edit_message_text("😸 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid)); return S_MAIN
     if d == "skill":
         skills = get_skills(uid)
         rows = []
@@ -495,7 +495,7 @@ async def cb_custapi(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     uid = q.from_user.id; d = q.data
 
     if d == "main":
-        await q.edit_message_text("🦞 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid)); return S_MAIN
+        await q.edit_message_text("😸 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid)); return S_MAIN
     if d == "capi_add":
         await q.edit_message_text("➕ Ketik *nama* API (tanpa spasi):\nContoh: `dextools`, `binance`\n\n/batal", parse_mode="Markdown")
         return S_CUSTAPI_NAME
@@ -556,7 +556,7 @@ async def cb_chat(update: Update, ctx: ContextTypes.DEFAULT_TYPE):
     uid = q.from_user.id; d = q.data
 
     if d == "chat_exit":
-        await q.edit_message_text("🦞 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid)); return S_MAIN
+        await q.edit_message_text("😸 *Menu Utama*", parse_mode="Markdown", reply_markup=kb_main(uid)); return S_MAIN
     if d == "chat_clear":
         ctx.user_data["history"] = []
         await q.answer("✅ Riwayat dihapus!", show_alert=False); return S_CHAT
